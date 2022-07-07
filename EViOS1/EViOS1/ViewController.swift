@@ -29,8 +29,11 @@ class ViewController: UIViewController {
         showHiddenButton.setImage(UIImage(named:"eye_off_icon"), for: .normal)
         showHiddenButton.setTitle("", for:.normal)
         showHiddenButton.imageView?.contentMode = .scaleAspectFit
+        
         showHiddenButton.addTarget(self, action: #selector(showPassword),
                                    for: .touchUpInside)
+        
+        button.addTarget(self, action: #selector(didTapOnLoginButton), for: .touchUpInside)
         pwdField.delegate = self
         
     }
@@ -59,40 +62,43 @@ class ViewController: UIViewController {
         
         if(loginField.text != ""){
             if(pwdField.text != ""){
-                // si il y un @
-                    // si au moins 4 caractères
-                if(myswitch.isOn == true) {
-                    // s'il s'est inscrit à la news letter
-                    let alertNewsLetter = UIAlertController(title: "Bienvenue \(loginField.text ?? "")", message: "Vous vous êtes inscrit à la newsletter", preferredStyle:
-                    .alert)
-                    //add buttons
-                    alertNewsLetter.addAction(UIAlertAction(title: "Merci !", style: .cancel, handler: nil))
-                    present(alertNewsLetter, animated: true)
+                if(loginField.text?.contains("@")==true){
+                    if(loginField.text?.count ?? 0 >= 4){
+                        if(myswitch.isOn == true) {
+                            // s'il s'est inscrit à la news letter
+                            let alertNewsLetter = UIAlertController(title: "Bienvenue \(loginField.text ?? "")", message: "Vous vous êtes inscrit à la newsletter", preferredStyle:
+                                    .alert)
+                            //add buttons
+                            alertNewsLetter.addAction(UIAlertAction(title: "Merci !", style: .cancel, handler: nil))
+                            present(alertNewsLetter, animated: true)
+                        }
+                        else{
+                            // s'il ne s'est pas inscrit à la newsletter
+                            let alert = UIAlertController(title: "Bienvenue \(loginField.text ?? "")", message: "Vous ne vous êtes pas inscrit à la newsletter", preferredStyle:
+                                    .alert)
+                            //add buttons
+                            alert.addAction(UIAlertAction(title: "Merci", style: .cancel, handler: nil))
+                            present(alert, animated: true)
+                        }
+                        
+                    }
                 }
-                else{
-                    // s'il ne s'est pas inscrit à la newsletter
-                    let alert = UIAlertController(title: "Bienvenue \(loginField.text ?? "")", message: "Vous ne vous êtes pas inscrit à la newsletter", preferredStyle:
-                    .alert)
-                    //add buttons
-                    alert.addAction(UIAlertAction(title: "Merci", style: .cancel, handler: nil))
-                    present(alert, animated: true)
-                }
-            }
-            else {
-                // s'il y a une erreur
-                let alertErreur = UIAlertController(title: "Erreur", message: "Une condition n'est pas respecté", preferredStyle:
-                .alert)
-                //add buttons
-                alertErreur.addAction(UIAlertAction(title: "ok", style: .cancel, handler: nil))
-                present(alertErreur, animated: true)
             }
         }
+        else {
+            // s'il y a une erreur
+            let alertErreur = UIAlertController(title: "Erreur", message: "Une condition n'est pas respecté", preferredStyle:
+                    .alert)
+            //add buttons
+            alertErreur.addAction(UIAlertAction(title: "ok", style: .cancel, handler: nil))
+            present(alertErreur, animated: true)
+        }
+
     }
-    
 }
-extension ViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        view.endEditing(true)
-        return true
+    extension ViewController: UITextFieldDelegate {
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            view.endEditing(true)
+            return true
+        }
     }
-}
