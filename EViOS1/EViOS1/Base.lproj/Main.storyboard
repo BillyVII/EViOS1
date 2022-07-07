@@ -21,7 +21,7 @@
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="ultraLight"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I5f-dB-vKz">
-                                <rect key="frame" x="20" y="396.5" width="284" height="34"/>
+                                <rect key="frame" x="20" y="396.5" width="309" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -41,13 +41,13 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8TG-vM-bUe">
                                 <rect key="frame" x="20" y="352.5" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y18-0H-fDt">
                                 <rect key="frame" x="83" y="772" width="248" height="31"/>
                                 <color key="backgroundColor" red="0.18388762019999999" green="0.36392660240000002" blue="0.1875436201" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button">
+                                <buttonConfiguration key="configuration" style="plain" title="Login">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
@@ -60,34 +60,40 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8SO-sC-qul">
                                 <rect key="frame" x="182.5" y="492.5" width="51" height="31"/>
                             </switch>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye_on_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4QE-QK-vHs">
-                                <rect key="frame" x="312" y="385.5" width="89" height="45"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="KIa-Uc-TgY">
+                                <rect key="frame" x="344" y="398" width="50" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="xtz-vW-i3F"/>
+                                    <constraint firstAttribute="width" constant="50" id="Cjb-fx-fNE"/>
+                                    <constraint firstAttribute="height" constant="40" id="hBz-lW-OMf"/>
                                 </constraints>
-                            </imageView>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="showPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3wY-qy-bZB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="gcK-Tt-YAo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3bg-My-RcW"/>
-                            <constraint firstItem="4QE-QK-vHs" firstAttribute="leading" secondItem="I5f-dB-vKz" secondAttribute="trailing" constant="8" symbolic="YES" id="3cC-sF-oHP"/>
                             <constraint firstItem="I5f-dB-vKz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4kV-Lq-eTp"/>
                             <constraint firstItem="8SO-sC-qul" firstAttribute="top" secondItem="pXA-rW-QTh" secondAttribute="bottom" constant="20" id="5AP-OU-Ssu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="y18-0H-fDt" secondAttribute="bottom" constant="59" id="5mb-IS-ioK"/>
                             <constraint firstItem="7dm-PF-Svw" firstAttribute="top" secondItem="gcK-Tt-YAo" secondAttribute="bottom" constant="20" id="7CT-9n-Fhd"/>
                             <constraint firstItem="pXA-rW-QTh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7om-4n-rrO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KIa-Uc-TgY" secondAttribute="trailing" constant="20" id="8nj-hM-IsK"/>
+                            <constraint firstItem="KIa-Uc-TgY" firstAttribute="top" secondItem="8TG-vM-bUe" secondAttribute="bottom" constant="11.5" id="9GU-nr-xyj"/>
                             <constraint firstItem="I5f-dB-vKz" firstAttribute="top" secondItem="8TG-vM-bUe" secondAttribute="bottom" constant="10" id="BKI-2B-c4u"/>
                             <constraint firstItem="8TG-vM-bUe" firstAttribute="top" secondItem="7dm-PF-Svw" secondAttribute="bottom" constant="20" id="Cb1-V3-lAf"/>
                             <constraint firstItem="gcK-Tt-YAo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="73" id="G5K-EU-Z14"/>
                             <constraint firstItem="e78-ND-OwQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="KvH-Pu-Hxk"/>
-                            <constraint firstItem="4QE-QK-vHs" firstAttribute="top" secondItem="7dm-PF-Svw" secondAttribute="bottom" constant="53" id="LCN-P5-ks9"/>
                             <constraint firstItem="8SO-sC-qul" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LwV-z5-2Ft"/>
                             <constraint firstItem="gcK-Tt-YAo" firstAttribute="width" secondItem="e78-ND-OwQ" secondAttribute="width" multiplier="0.4" id="MUu-5b-z77"/>
                             <constraint firstItem="7dm-PF-Svw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Q3U-RX-Raq"/>
+                            <constraint firstItem="KIa-Uc-TgY" firstAttribute="leading" secondItem="I5f-dB-vKz" secondAttribute="trailing" constant="15" id="QIS-lQ-95d"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8TG-vM-bUe" secondAttribute="trailing" constant="20" id="QWI-Dd-12r"/>
                             <constraint firstItem="y18-0H-fDt" firstAttribute="width" secondItem="e78-ND-OwQ" secondAttribute="width" multiplier="0.6" id="Zbz-mI-rJy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I5f-dB-vKz" secondAttribute="trailing" constant="110" id="cAT-08-8dM"/>
                             <constraint firstAttribute="bottom" secondItem="e78-ND-OwQ" secondAttribute="bottom" id="dXi-TC-ji9"/>
                             <constraint firstItem="e78-ND-OwQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="g5p-c1-131"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7dm-PF-Svw" secondAttribute="trailing" constant="20" id="i1b-qi-rLa"/>
@@ -95,14 +101,14 @@
                             <constraint firstItem="e78-ND-OwQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lmH-YP-9ps"/>
                             <constraint firstItem="y18-0H-fDt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mgN-hB-Ltw"/>
                             <constraint firstItem="8TG-vM-bUe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mlb-Rt-f9r"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4QE-QK-vHs" secondAttribute="trailing" constant="13" id="uAC-GV-QXk"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="button" destination="y18-0H-fDt" id="fDm-Dk-7Kw"/>
                         <outlet property="loginField" destination="8TG-vM-bUe" id="7gF-HQ-D92"/>
+                        <outlet property="myswitch" destination="8SO-sC-qul" id="BCA-zH-SyZ"/>
                         <outlet property="pwdField" destination="I5f-dB-vKz" id="Nb7-S2-cc0"/>
-                        <outlet property="swift" destination="8SO-sC-qul" id="9kC-Yz-blC"/>
+                        <outlet property="showHiddenButton" destination="KIa-Uc-TgY" id="npD-RO-C31"/>
                         <outlet property="userImage" destination="gcK-Tt-YAo" id="2ok-wg-sxt"/>
                     </connections>
                 </viewController>
@@ -113,7 +119,6 @@
     </scenes>
     <resources>
         <image name="background_image" width="853" height="1280"/>
-        <image name="eye_on_icon" width="512" height="512"/>
         <image name="user_icon" width="200" height="200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
