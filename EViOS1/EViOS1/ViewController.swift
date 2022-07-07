@@ -59,26 +59,29 @@ class ViewController: UIViewController {
         
     }
     @IBAction func didTapOnLoginButton() {
-        
         if(loginField.text != ""){
             if(pwdField.text != ""){
                 if(loginField.text?.contains("@")==true){
                     if(loginField.text?.count ?? 0 >= 4){
-                        if(myswitch.isOn == true) {
-                            // s'il s'est inscrit à la news letter
-                            let alertNewsLetter = UIAlertController(title: "Bienvenue \(loginField.text ?? "")", message: "Vous vous êtes inscrit à la newsletter", preferredStyle:
-                                    .alert)
-                            //add buttons
-                            alertNewsLetter.addAction(UIAlertAction(title: "Merci !", style: .cancel, handler: nil))
-                            present(alertNewsLetter, animated: true)
-                        }
-                        else{
-                            // s'il ne s'est pas inscrit à la newsletter
-                            let alert = UIAlertController(title: "Bienvenue \(loginField.text ?? "")", message: "Vous ne vous êtes pas inscrit à la newsletter", preferredStyle:
-                                    .alert)
-                            //add buttons
-                            alert.addAction(UIAlertAction(title: "Merci", style: .cancel, handler: nil))
-                            present(alert, animated: true)
+                        loading{
+                            DispatchQueue.main.async {
+                                if(self.myswitch.isOn == true) {
+                                    // s'il s'est inscrit à la news letter
+                                    let alertNewsLetter = UIAlertController(title: "Bienvenue \(self.loginField.text ?? "")", message: "Vous vous êtes inscrit à la newsletter", preferredStyle:
+                                            .alert)
+                                    //add buttons
+                                    alertNewsLetter.addAction(UIAlertAction(title: "Merci !", style: .cancel, handler: nil))
+                                    self.present(alertNewsLetter, animated: true)
+                                }
+                                else{
+                                    // s'il ne s'est pas inscrit à la newsletter
+                                    let alert = UIAlertController(title: "Bienvenue \(self.loginField.text ?? "")", message: "Vous ne vous êtes pas inscrit à la newsletter", preferredStyle:
+                                            .alert)
+                                    //add buttons
+                                    alert.addAction(UIAlertAction(title: "Merci", style: .cancel, handler: nil))
+                                    self.present(alert, animated: true)
+                                }
+                            }
                         }
                         
                     }
@@ -95,7 +98,14 @@ class ViewController: UIViewController {
         }
 
     }
+    func loading(completionHandler:@escaping()->Void){
+        DispatchQueue.global(qos:.background).async{
+            sleep(5)
+            completionHandler()
+        }
+    }
 }
+
     extension ViewController: UITextFieldDelegate {
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             view.endEditing(true)
