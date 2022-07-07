@@ -8,10 +8,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet var userImage: UIImage!
+    @IBOutlet var label: UILabel!
+    @IBOutlet var loginField: UITextField!
+    @IBOutlet var pwdField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
 
